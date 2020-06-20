@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,9 +13,20 @@ class Dairy extends StatefulWidget {
 }
 
 class _Dairy extends State<Dairy> {
+  List<bool> isSelected = [false, false, false, false];
   final mood = <int>[];
   final daily = <String>[];
   final controller = TextEditingController();
+  void toggle(int index) {
+    for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
+      if (buttonIndex == index) {
+        isSelected[buttonIndex] = !isSelected[buttonIndex];
+      } else {
+        isSelected[buttonIndex] = false;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,41 +58,49 @@ class _Dairy extends State<Dairy> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: RaisedButton(
+                    child: FlatButton(
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(16),
                       child: Image.asset('images/1.png'),
+                      color: isSelected[0] ? Colors.grey : Colors.transparent,
                       onPressed: () {
+                        setState(() => toggle(0));
                         mood.add(1);
                       },
                     ),
                   ),
                   Expanded(
-                    child: RaisedButton(
+                    child: FlatButton(
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(16),
                       child: Image.asset('images/2.png'),
+                      color: isSelected[1] ? Colors.grey : Colors.transparent,
                       onPressed: () {
+                        setState(() => toggle(1));
                         mood.add(2);
                       },
                     ),
                   ),
                   Expanded(
-                    child: RaisedButton(
+                    child: FlatButton(
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(16),
                       child: Image.asset('images/3.png'),
+                      color: isSelected[2] ? Colors.grey : Colors.transparent,
                       onPressed: () {
+                        setState(() => toggle(2));
                         mood.add(3);
                       },
                     ),
                   ),
                   Expanded(
-                    child: RaisedButton(
+                    child: FlatButton(
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(16),
                       child: Image.asset('images/4.png'),
+                      color: isSelected[3] ? Colors.grey : Colors.transparent,
                       onPressed: () {
+                        setState(() => toggle(3));
                         mood.add(4);
                       },
                     ),
