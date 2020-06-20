@@ -1,18 +1,17 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(Dairy());
+  runApp(Mood());
 }
 
-class Dairy extends StatefulWidget {
+class Mood extends StatefulWidget {
   @override
-  _Dairy createState() => _Dairy();
+  _Mood createState() => _Mood();
 }
 
-class _Dairy extends State<Dairy> {
+class _Mood extends State<Mood> {
   List<bool> isSelected = [false, false, false, false];
   final mood = <int>[];
   final daily = <String>[];
@@ -65,7 +64,6 @@ class _Dairy extends State<Dairy> {
                       color: isSelected[0] ? Colors.grey : Colors.transparent,
                       onPressed: () {
                         setState(() => toggle(0));
-                        mood.add(1);
                       },
                     ),
                   ),
@@ -77,7 +75,6 @@ class _Dairy extends State<Dairy> {
                       color: isSelected[1] ? Colors.grey : Colors.transparent,
                       onPressed: () {
                         setState(() => toggle(1));
-                        mood.add(2);
                       },
                     ),
                   ),
@@ -89,7 +86,6 @@ class _Dairy extends State<Dairy> {
                       color: isSelected[2] ? Colors.grey : Colors.transparent,
                       onPressed: () {
                         setState(() => toggle(2));
-                        mood.add(3);
                       },
                     ),
                   ),
@@ -101,7 +97,6 @@ class _Dairy extends State<Dairy> {
                       color: isSelected[3] ? Colors.grey : Colors.transparent,
                       onPressed: () {
                         setState(() => toggle(3));
-                        mood.add(4);
                       },
                     ),
                   ),
@@ -144,6 +139,13 @@ class _Dairy extends State<Dairy> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
+              for (int buttonIndex = 0;
+                  buttonIndex < isSelected.length;
+                  buttonIndex++) {
+                if (isSelected[buttonIndex] == true) {
+                  mood.add(buttonIndex);
+                }
+              }
               daily.add(controller.text);
               controller.clear();
             });
