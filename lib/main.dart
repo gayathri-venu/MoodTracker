@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(Dairy());
@@ -45,6 +46,8 @@ class _Dairy extends State<Dairy> {
                 children: <Widget>[
                   Expanded(
                     child: RaisedButton(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(16),
                       child: Image.asset('images/1.png'),
                       onPressed: () {
                         mood.add(1);
@@ -53,6 +56,8 @@ class _Dairy extends State<Dairy> {
                   ),
                   Expanded(
                     child: RaisedButton(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(16),
                       child: Image.asset('images/2.png'),
                       onPressed: () {
                         mood.add(2);
@@ -61,6 +66,8 @@ class _Dairy extends State<Dairy> {
                   ),
                   Expanded(
                     child: RaisedButton(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(16),
                       child: Image.asset('images/3.png'),
                       onPressed: () {
                         mood.add(3);
@@ -69,8 +76,9 @@ class _Dairy extends State<Dairy> {
                   ),
                   Expanded(
                     child: RaisedButton(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(16),
                       child: Image.asset('images/4.png'),
-                      highlightColor: Colors.white70,
                       onPressed: () {
                         mood.add(4);
                       },
